@@ -1,0 +1,112 @@
+diff --git a/sass/base/_typography.scss b/sass/base/_typography.scss
+index b68753f..8083f27 100644
+--- a/sass/base/_typography.scss
++++ b/sass/base/_typography.scss
+@@ -15,7 +15,7 @@ $header-subtitle-font-family: $heading-font-family !default;
+ .mono { font-family: $mono; }
+ 
+ body > header h1 {
+-  font-size: 2.2em;
++  font-size: 1.7em;
+   @extend .heading;
+   font-family: $header-title-font-family;
+   font-weight: normal;
+@@ -27,18 +27,18 @@ body > header h2 {
+ }
+ 
+ body {
+-  line-height: 1.5em;
++  line-height: 1.2em;
+   color: $text-color;
+   @extend .serif;
+ }
+ h1 {
+-  font-size: 2.2em;
++  font-size: 1.7em;
+   line-height: 1.2em;
+ }
+ 
+ @media only screen and (min-width: 992px) {
+   body { font-size: 1.15em; }
+-  h1 { font-size: 2.6em; line-height: 1.2em; }
++  h1 { font-size: 1.7em; line-height: 1.2em; }
+ }
+ 
+ #{headings()}{
+@@ -62,7 +62,11 @@ h5, section h4, section section h3 {
+ h6, section h5, section section h4, section section section h3 {
+   font-size: .8em;
+ }
+-p, blockquote, ul, ol { margin-bottom: 1.5em; }
++p, blockquote, ul, ol {
++  font-size: .8em;
++  line-height: 1.8em;
++  margin-bottom: 1em;
++}
+ 
+ ul { list-style-type: disc;
+   ul { list-style-type: circle; margin-bottom: 0px;
+@@ -109,8 +113,8 @@ blockquote {
+   $bq-margin: 1.2em;
+   font-style: italic;
+   position: relative;
+-  font-size: 1.2em;
+-  line-height: 1.5em;
++  font-size: .6em;
++  line-height: 1.2em;
+   padding-left: 1em;
+   border-left: 4px solid rgba($text-color-light, .5);
+   cite {
+diff --git a/sass/partials/_blog.scss b/sass/partials/_blog.scss
+index 57fe7a8..fb0e371 100644
+--- a/sass/partials/_blog.scss
++++ b/sass/partials/_blog.scss
+@@ -13,7 +13,7 @@ article {
+         &:hover { text-decoration: underline; } }
+     }
+     p {
+-      font-size: .9em;
++      font-size: .8em;
+       color: $text-color-light;
+       margin: 0;
+       &.meta {
+@@ -72,7 +72,7 @@ article {
+     @extend .sans;
+     p.meta {
+       margin-bottom: .8em;
+-      font-size: .85em;
++      font-size: .75em;
+       clear: both;
+       overflow: hidden;
+     }
+@@ -92,7 +92,7 @@ article + article {
+   article { padding-top: 2em; }
+   article header { background: none; padding-bottom: 0; }
+   article h1 {
+-    font-size: 2.2em;
++    font-size: 1.7em;
+     a { color: inherit; &:hover { color: $link-color-hover; } }
+   }
+   a[rel=full-article] {
+@@ -124,7 +124,7 @@ article + article {
+ 
+ #content div.pagination {
+   text-align: center;
+-  font-size: .95em;
++  font-size: .85em;
+   position: relative;
+   background: $img-border top left repeat-x;
+   padding: {top: 1.5em; bottom: 1.5em;}
+diff --git a/sass/partials/_syntax.scss b/sass/partials/_syntax.scss
+index 5465286..81bd04d 100644
+--- a/sass/partials/_syntax.scss
++++ b/sass/partials/_syntax.scss
+@@ -87,7 +87,7 @@ pre {
+   border: 1px solid $pre-border;
+   line-height: 1.45em;
+   font-size: 13px;
+-  margin-bottom: 2.1em;
++  margin-bottom: 1.5em;
+   padding: .8em 1em;
+   color: $pre-color;
+   overflow: auto;

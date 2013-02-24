@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Banal phone</title>
+  <meta name="author" content="m2">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="静的なWebページをつくるCMSはないものかと探していたら、Jeykillなるものを見つけた。
+これはただのファイルジェネレータで、レイアウトやテンプレートなどの色々なファイルを自分で用意しなければならない。
+もう少し手軽に始められるものとして、Octopressがあるようだ。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +26,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Banal phone" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,9 +37,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">Banal phone</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>books, programmings and bunfree</h2>
   
 </hgroup>
 
@@ -65,6 +67,317 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/24/install-octpress/">Octopressのインストール</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-24T02:04:00+09:00" pubdate data-updated="true">Feb 24<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>静的なWebページをつくるCMSはないものかと探していたら、<a href="http://jekyllrb.com/">Jeykill</a>なるものを見つけた。
+これはただのファイルジェネレータで、レイアウトやテンプレートなどの色々なファイルを自分で用意しなければならない。
+もう少し手軽に始められるものとして、<a href="http://octopress.org/">Octopress</a>があるようだ。</p>
+
+<p>すでに色々な解説がWeb上にある。</p>
+
+<ul>
+<li><a href="https://www.google.co.jp/search?q=jekyll">JeykllのGoogle検索結果</a></li>
+<li><a href="https://www.google.co.jp/search?q=octopress">OctopressのGoogle検索結果</a></li>
+</ul>
+
+
+<p>魅力的なのは、</p>
+
+<ul>
+<li>記事をテキストファイルで管理できる</li>
+<li>記事をGitで管理できる</li>
+</ul>
+
+
+<p>というところ。当初の目的の「静的なWebページをつくるCMSを探す」という目的からは、ずれてしまった気もする。基本的にはBlogを書くためのフレームワークである。頑張ればCMSとして使えたりもするんだろうけれど。</p>
+
+<p><a href="http://pages.github.com/">GitHubPages</a>でJekyllやOctopressのWebサイトを手軽にホスティングできるというので、ひとまずつくってみた。
+GitHubに<em>github_account</em>.github.comというリポジトリをつくるだけ。GitHubの&#8217;Automatic Page Generator&#8217;を使うと、Jekyllのファイルが生成されてしまうので、これはやらない。</p>
+
+<p>公式サイトのドキュメントに従って、ローカルにOctopressをインストールし、githubにpushするとWebサイトが閲覧できるようになる。
+少し時間がかかる（10分程度？）ので注意。
+なお、<code>rake preview</code>でローカルサーバを起動して、生成されたHTMLをローカルで事前に確認できる。</p>
+
+<p>インストールするときに、</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>しただけでは、<code>rake</code>実行時に、</p>
+
+<pre><code>You have already activated rake 10.0.3, but your Gemfile requires rake 0.9.2.2. Using bundle exec may solve this.
+</code></pre>
+
+<p>と怒られてしまったので、</p>
+
+<pre><code>bundle update
+</code></pre>
+
+<p>しなければいけなかった。</p>
+
+<p>デフォルトのテーマでは、日本語を表示したときに、フォントが大きすぎて見づらい。
+CSSのカスタマイズをしようと思ったら、結構大変で、多分手を入れるべきではないbaseまで改造するハメになりました。</p>
+
+<figure class='code'><figcaption><span> (adjust_settings.diff)</span> <a href='/downloads/code/adjust_settings.diff'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/sass/base/_typography.scss b/sass/base/_typography.scss</span>
+</span><span class='line'><span class="gh">index b68753f..8083f27 100644</span>
+</span><span class='line'><span class="gd">--- a/sass/base/_typography.scss</span>
+</span><span class='line'><span class="gi">+++ b/sass/base/_typography.scss</span>
+</span><span class='line'><span class="gu">@@ -15,7 +15,7 @@ $header-subtitle-font-family: $heading-font-family !default;</span>
+</span><span class='line'> .mono { font-family: $mono; }
+</span><span class='line'>
+</span><span class='line'> body &gt; header h1 {
+</span><span class='line'><span class="gd">-  font-size: 2.2em;</span>
+</span><span class='line'><span class="gi">+  font-size: 1.7em;</span>
+</span><span class='line'>   @extend .heading;
+</span><span class='line'>   font-family: $header-title-font-family;
+</span><span class='line'>   font-weight: normal;
+</span><span class='line'><span class="gu">@@ -27,18 +27,18 @@ body &gt; header h2 {</span>
+</span><span class='line'> }
+</span><span class='line'>
+</span><span class='line'> body {
+</span><span class='line'><span class="gd">-  line-height: 1.5em;</span>
+</span><span class='line'><span class="gi">+  line-height: 1.2em;</span>
+</span><span class='line'>   color: $text-color;
+</span><span class='line'>   @extend .serif;
+</span><span class='line'> }
+</span><span class='line'> h1 {
+</span><span class='line'><span class="gd">-  font-size: 2.2em;</span>
+</span><span class='line'><span class="gi">+  font-size: 1.7em;</span>
+</span><span class='line'>   line-height: 1.2em;
+</span><span class='line'> }
+</span><span class='line'>
+</span><span class='line'> @media only screen and (min-width: 992px) {
+</span><span class='line'>   body { font-size: 1.15em; }
+</span><span class='line'><span class="gd">-  h1 { font-size: 2.6em; line-height: 1.2em; }</span>
+</span><span class='line'><span class="gi">+  h1 { font-size: 1.7em; line-height: 1.2em; }</span>
+</span><span class='line'> }
+</span><span class='line'>
+</span><span class='line'> #{headings()}{
+</span><span class='line'><span class="gu">@@ -62,7 +62,11 @@ h5, section h4, section section h3 {</span>
+</span><span class='line'> h6, section h5, section section h4, section section section h3 {
+</span><span class='line'>   font-size: .8em;
+</span><span class='line'> }
+</span><span class='line'><span class="gd">-p, blockquote, ul, ol { margin-bottom: 1.5em; }</span>
+</span><span class='line'><span class="gi">+p, blockquote, ul, ol {</span>
+</span><span class='line'><span class="gi">+  font-size: .8em;</span>
+</span><span class='line'><span class="gi">+  line-height: 1.8em;</span>
+</span><span class='line'><span class="gi">+  margin-bottom: 1em;</span>
+</span><span class='line'><span class="gi">+}</span>
+</span><span class='line'>
+</span><span class='line'> ul { list-style-type: disc;
+</span><span class='line'>   ul { list-style-type: circle; margin-bottom: 0px;
+</span><span class='line'><span class="gu">@@ -109,8 +113,8 @@ blockquote {</span>
+</span><span class='line'>   $bq-margin: 1.2em;
+</span><span class='line'>   font-style: italic;
+</span><span class='line'>   position: relative;
+</span><span class='line'><span class="gd">-  font-size: 1.2em;</span>
+</span><span class='line'><span class="gd">-  line-height: 1.5em;</span>
+</span><span class='line'><span class="gi">+  font-size: .6em;</span>
+</span><span class='line'><span class="gi">+  line-height: 1.2em;</span>
+</span><span class='line'>   padding-left: 1em;
+</span><span class='line'>   border-left: 4px solid rgba($text-color-light, .5);
+</span><span class='line'>   cite {
+</span><span class='line'><span class="gh">diff --git a/sass/partials/_blog.scss b/sass/partials/_blog.scss</span>
+</span><span class='line'><span class="gh">index 57fe7a8..fb0e371 100644</span>
+</span><span class='line'><span class="gd">--- a/sass/partials/_blog.scss</span>
+</span><span class='line'><span class="gi">+++ b/sass/partials/_blog.scss</span>
+</span><span class='line'><span class="gu">@@ -13,7 +13,7 @@ article {</span>
+</span><span class='line'>         &amp;:hover { text-decoration: underline; } }
+</span><span class='line'>     }
+</span><span class='line'>     p {
+</span><span class='line'><span class="gd">-      font-size: .9em;</span>
+</span><span class='line'><span class="gi">+      font-size: .8em;</span>
+</span><span class='line'>       color: $text-color-light;
+</span><span class='line'>       margin: 0;
+</span><span class='line'>       &amp;.meta {
+</span><span class='line'><span class="gu">@@ -72,7 +72,7 @@ article {</span>
+</span><span class='line'>     @extend .sans;
+</span><span class='line'>     p.meta {
+</span><span class='line'>       margin-bottom: .8em;
+</span><span class='line'><span class="gd">-      font-size: .85em;</span>
+</span><span class='line'><span class="gi">+      font-size: .75em;</span>
+</span><span class='line'>       clear: both;
+</span><span class='line'>       overflow: hidden;
+</span><span class='line'>     }
+</span><span class='line'><span class="gu">@@ -92,7 +92,7 @@ article + article {</span>
+</span><span class='line'>   article { padding-top: 2em; }
+</span><span class='line'>   article header { background: none; padding-bottom: 0; }
+</span><span class='line'>   article h1 {
+</span><span class='line'><span class="gd">-    font-size: 2.2em;</span>
+</span><span class='line'><span class="gi">+    font-size: 1.7em;</span>
+</span><span class='line'>     a { color: inherit; &amp;:hover { color: $link-color-hover; } }
+</span><span class='line'>   }
+</span><span class='line'>   a[rel=full-article] {
+</span><span class='line'><span class="gu">@@ -124,7 +124,7 @@ article + article {</span>
+</span><span class='line'>
+</span><span class='line'> #content div.pagination {
+</span><span class='line'>   text-align: center;
+</span><span class='line'><span class="gd">-  font-size: .95em;</span>
+</span><span class='line'><span class="gi">+  font-size: .85em;</span>
+</span><span class='line'>   position: relative;
+</span><span class='line'>   background: $img-border top left repeat-x;
+</span><span class='line'>   padding: {top: 1.5em; bottom: 1.5em;}
+</span><span class='line'><span class="gh">diff --git a/sass/partials/_syntax.scss b/sass/partials/_syntax.scss</span>
+</span><span class='line'><span class="gh">index 5465286..81bd04d 100644</span>
+</span><span class='line'><span class="gd">--- a/sass/partials/_syntax.scss</span>
+</span><span class='line'><span class="gi">+++ b/sass/partials/_syntax.scss</span>
+</span><span class='line'><span class="gu">@@ -87,7 +87,7 @@ pre {</span>
+</span><span class='line'>   border: 1px solid $pre-border;
+</span><span class='line'>   line-height: 1.45em;
+</span><span class='line'>   font-size: 13px;
+</span><span class='line'><span class="gd">-  margin-bottom: 2.1em;</span>
+</span><span class='line'><span class="gi">+  margin-bottom: 1.5em;</span>
+</span><span class='line'>   padding: .8em 1em;
+</span><span class='line'>   color: $pre-color;
+</span><span class='line'>   overflow: auto;
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
@@ -76,6 +389,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/24/install-octpress/">Octopressのインストール</a>
+      </li>
     
   </ul>
 </section>
@@ -91,7 +408,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Your Name -
+  Copyright &copy; 2013 - m2 -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

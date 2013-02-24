@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Banal phone]]></title>
-  <link href="http://m2tmk.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: octopress | Banal phone]]></title>
+  <link href="http://m2tmk.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://m2tmk.github.com/"/>
   <updated>2013-02-24T20:26:47+09:00</updated>
   <id>http://m2tmk.github.com/</id>
@@ -41,7 +41,7 @@
 <p>というところ。当初の目的の「静的なWebページをつくるCMSを探す」という目的からは、ずれてしまった気もする。基本的にはBlogを書くためのフレームワークである。頑張ればCMSとして使えたりもするんだろうけれど。</p>
 
 <p><a href="http://pages.github.com/">GitHubPages</a>でJekyllやOctopressのWebサイトを手軽にホスティングできるというので、ひとまずつくってみた。
-GitHubに<em>github_account</em>.github.comというリポジトリをつくるだけ。GitHubの&#8217;Automatic Page Generator&#8217;を使うと、Jekyllのファイルが生成されてしまうので、これはやらない。</p>
+GitHubに<em>github_account</em>.github.comというリポジトリをつくるだけ。GitHubの'Automatic Page Generator'を使うと、Jekyllのファイルが生成されてしまうので、これはやらない。</p>
 
 <p>公式サイトのドキュメントに従って、ローカルにOctopressをインストールし、githubにpushするとWebサイトが閲覧できるようになる。
 少し時間がかかる（10分程度？）ので注意。
@@ -67,7 +67,7 @@ GitHubに<em>github_account</em>.github.comというリポジトリをつくる�
 <p>デフォルトのテーマでは、日本語を表示したときに、フォントが大きすぎて見づらい。
 CSSのカスタマイズをしようと思ったら、結構大変で、多分手を入れるべきではないbaseまで改造するハメになりました。</p>
 
-<figure class='code'><figcaption><span> (adjust_settings.diff)</span> <a href='http://m2tmk.github.com/downloads/code/adjust_settings.diff'>download</a></figcaption>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (adjust_settings.diff)</span> <a href='/downloads/code/adjust_settings.diff'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -292,8 +292,7 @@ CSSのカスタマイズをしようと思ったら、結構大変で、多分�
 </span><span class='line'>   padding: .8em 1em;
 </span><span class='line'>   color: $pre-color;
 </span><span class='line'>   overflow: auto;
-</span></code></pre></td></tr></table></div></figure>
-
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   
