@@ -4,7 +4,7 @@
   <title><![CDATA[Banal phone]]></title>
   <link href="http://m2tmk.github.com/atom.xml" rel="self"/>
   <link href="http://m2tmk.github.com/"/>
-  <updated>2013-02-24T20:36:44+09:00</updated>
+  <updated>2013-02-24T21:48:02+09:00</updated>
   <id>http://m2tmk.github.com/</id>
   <author>
     <name><![CDATA[m2]]></name>
@@ -68,7 +68,7 @@ GitHubに<em>github_account</em>.github.comというリポジトリをつくる�
 CSSのカスタマイズをしようと思ったら、結構大変で、多分手を入れるべきではない<code>sass/base</code>下のファイルを修正するハメになりました。
 参考までに、diffを載せておきます。</p>
 
-<figure class='code'><figcaption><span> (adjust_settings.diff)</span> <a href='http://m2tmk.github.com/downloads/code/adjust_settings.diff'>download</a></figcaption>
+<figure class='code'><figcaption><span> (adjust_css.diff)</span> <a href='http://m2tmk.github.com/downloads/code/adjust_css.diff'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
